@@ -24,11 +24,11 @@
   :focus-visible { outline: 2px solid #2b59ff; outline-offset: 3px; }
   ::selection { background: #d8e1ff; }
   [data-mobile-only] { display: none !important; }
-  @media (min-width: 901px) {
+  @media (min-width: 1021px) {
     .wrap { max-width: 1180px; margin: 0 auto; }
     .pad { padding-left: 56px !important; padding-right: 56px !important; }
   }
-  @media (min-width: 901px) {
+  @media (min-width: 1021px) {
     .sect { padding-top: 68px !important; padding-bottom: 68px !important; }
   }
   @media (max-width: 1120px) {
@@ -38,8 +38,12 @@
     h2 { font-size: 34px !important; }
     .hero-img { height: 360px !important; }
   }
-  @media (max-width: 900px) {
+  @media (max-width: 1020px) {
     [data-mobile-only] { display: flex !important; }
+    [data-quote] { display: flex !important; flex-direction: column !important; gap: 22px !important; padding: 30px 28px !important; }
+    [data-quote-img] { order: 2; }
+    [data-logos] { flex-direction: column !important; align-items: flex-start !important; gap: 28px !important; }
+
     [data-desk-only] { display: none !important; }
     .pad { padding-left: 22px !important; padding-right: 22px !important; }
     .sect { padding-top: 56px !important; padding-bottom: 56px !important; }
@@ -137,11 +141,15 @@
         </div>
       </div>
       
-      <blockquote style="margin: 34px 0 0; background: #f4f7ff; border-radius: 26px; padding: 38px 40px; display: grid; grid-template-columns: 76px 1fr; gap: 28px; align-items: center; margin-top: 50px">
-        <img src="assets/chris-kahn.jpg" alt="Chris Kahn" style="width: 76px; height: 76px; border-radius: 999px; object-fit: cover; display: block;">
+      <blockquote data-quote style="margin: 34px 0 0; background: #f4f7ff; border-radius: 26px; padding: 38px 40px; display: grid; grid-template-columns: 76px 1fr; gap: 28px; align-items: center; margin-top: 50px">
+        <img data-quote-img data-desk-only src="assets/chris-kahn.jpg" alt="Chris Kahn" style="width: 76px; height: 76px; border-radius: 999px; object-fit: cover; display: block;">
         <div>
           <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.4; letter-spacing: -0.02em; color: #0d1330; margin: 0 0 14px; text-wrap: pretty;">“Sarah was always the one who kept an eye on the details: she's a logistics whiz who usually had the best suggestions for how to get from points A-to-Z, and everywhere in between.”</p>
-          <p style="font-size: 15px; margin: 0;">Chris Kahn – Founder &amp; Principal Consultant, Signal &amp; Story</p>
+          <p data-desk-only style="font-size: 15px; margin: 0;">Chris Kahn – Founder &amp; Principal Consultant, Signal &amp; Story</p>
+          <div data-mobile-only style="align-items: center; gap: 14px;">
+            <img src="assets/chris-kahn.jpg" alt="Chris Kahn" style="width: 52px; height: 52px; border-radius: 999px; object-fit: cover; display: block; flex: none;">
+            <span style="font-size: 15px; line-height: 1.5;">Chris Kahn – Founder &amp; Principal Consultant, Signal &amp; Story</span>
+          </div>
         </div>
       </blockquote>
     </div>
@@ -252,7 +260,7 @@
           <p style="margin: 0;">Based in Ann Arbor, MI, Sarah Gage brings over a decade of hands-on project management experience across a strikingly varied set of fast-moving industries&nbsp;<span id="docs-internal-guid-be228b7b-7fff-12da-e4c3-611b3279fa34"><span style="font-size: 11pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;">–</span></span>&nbsp;from financial media and digital marketing agencies to SaaS, consumer software, and executive security.</p>
           <p style="margin: 0;">She holds PMP and Workshopper Master Facilitator certifications and is an MBA candidate at the University of Illinois Urbana-Champaign.</p>
         </div>
-        <div style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap; margin-top: 40px; padding-top: 32px; border-top: 1px solid #e4e9f4;">
+        <div data-logos style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap; margin-top: 40px; padding-top: 32px; border-top: 1px solid #e4e9f4;">
           <img src="assets/pmp-badge.png" alt="Project Management Professional (PMP) certification" style="height: 72px; width: auto; flex: none;">
           <img src="assets/umich.png" alt="University of Michigan" style="height: 77px; width: auto; flex: none;">
           <img src="assets/gies-illinois.webp" alt="Gies College of Business, University of Illinois Urbana-Champaign" style="height: 46px; width: auto; flex: none;">
