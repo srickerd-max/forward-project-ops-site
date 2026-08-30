@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=DM+Sans:ital,wght@0,400;0,500;1,400&amp;family=Caveat:wght@500;600&amp;display=swap">
+<style>
+  body { margin: 0; background: #fff; -webkit-font-smoothing: antialiased; }
+  a { color: #2b59ff; }
+  a:hover { color: #1f47d8; }
+  :focus-visible { outline: 2px solid #2b59ff; outline-offset: 3px; }
+  ::selection { background: #d8e1ff; }
+  [data-mobile-only] { display: none !important; }
+  @media (min-width: 901px) {
+    .wrap { max-width: 1180px; margin: 0 auto; }
+    .pad { padding-left: 56px !important; padding-right: 56px !important; }
+  }
+  @media (min-width: 901px) {
+    .sect { padding-top: 68px !important; padding-bottom: 68px !important; }
+  }
+  @media (max-width: 1120px) {
+    .cols-4, .cols-3 { grid-template-columns: repeat(2, 1fr) !important; }
+    .split { grid-template-columns: 1fr !important; gap: 34px !important; }
+    h1 { font-size: 43px !important; }
+    h2 { font-size: 34px !important; }
+    .hero-img { height: 360px !important; }
+  }
+  @media (max-width: 900px) {
+    [data-mobile-only] { display: flex !important; }
+    [data-desk-only] { display: none !important; }
+    .pad { padding-left: 22px !important; padding-right: 22px !important; }
+    .sect { padding-top: 56px !important; padding-bottom: 56px !important; }
+    .cols, .cols-2, .cols-3, .cols-4, .split { grid-template-columns: 1fr !important; gap: 26px !important; }
+    h1 { font-size: 38px !important; }
+    h2 { font-size: 29px !important; }
+    div[style*="grid-template-columns: 1fr auto"] { grid-template-columns: 1fr !important; gap: 30px !important; justify-items: start !important; padding: 38px 30px !important; }
+    .stat-row { grid-template-columns: 1fr 1fr !important; }
+    .hero-img { height: 300px !important; }
+  }
+  @media (max-width: 560px) {
+    h1 { font-size: 31px !important; }
+    .stat-row { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+
+<div style="font-family: 'DM Sans', sans-serif; color: #4a5270; background: #fff;">
+
+  <header class="pad" style="position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #eef0f6; padding: 16px 22px;">
+    <div class="wrap" style="display: flex; align-items: center; gap: 32px;">
+      <a href="#top" style="display: flex; align-items: center; gap: 11px; text-decoration: none; margin-right: auto;">
+        <span style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 11px; background: linear-gradient(135deg, #2b59ff, #5b86ff);">
+          <svg width="15" height="12" viewBox="0 0 26 20" fill="#fff" aria-hidden="true">
+            <path d="M2 2.4 L13 10 L2 17.6 Z"></path>
+            <path d="M13 2.4 L24 10 L13 17.6 Z"></path>
+          </svg>
+        </span>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: #0d1330;">Forward Project Ops</span>
+      </a>
+      <nav data-desk-only="" style="display: flex; gap: 30px; font-size: 15px; font-weight: 500;">
+        <a href="#how" style="color: #4a5270; text-decoration: none;" style-hover="color: #2b59ff;">How I Work</a>
+        <a href="#projects" style="color: #4a5270; text-decoration: none;" style-hover="color: #2b59ff;">Projects</a>
+        <a href="#proof" style="color: #4a5270; text-decoration: none;" style-hover="color: #2b59ff;">Case Studies</a>
+        <a href="#faq" style="color: #4a5270; text-decoration: none;" style-hover="color: #2b59ff;">FAQs</a>
+        <a href="#about" style="color: #4a5270; text-decoration: none;" style-hover="color: #2b59ff;">About</a>
+      </nav>
+      <button type="button" data-mobile-only="" onClick="{{ toggleMenu }}" aria-label="Menu" style="align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 12px; border: 1px solid #e6e9f2; background: #fff; color: #0d1330; cursor: pointer; padding: 0;">
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <path d="M1 1h16M1 6h16M1 11h16"></path>
+        </svg>
+      </button>
+      <a href="mailto:sarah@forwardprojectops.com" data-desk-only="" style="white-space: nowrap; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; color: #fff; background: #2b59ff; padding: 12px 22px; border-radius: 999px; box-shadow: 0 8px 20px rgba(43,89,255,0.24);" style-hover="background: #1f47d8;">Contact Sarah</a>
+    </div>
+  </header>
+
+  <div data-mobile-menu="" class="pad" style="display: {{ menuDisplay }}; flex-direction: column; gap: 18px; padding: 22px; background: #fff; border-bottom: 1px solid #eef0f6; font-size: 18px; font-weight: 500;">
+    <a href="#how" onClick="{{ closeMenu }}" style="color: #0d1330; text-decoration: none;">How I work</a>
+    <a href="#projects" onClick="{{ closeMenu }}" style="color: #0d1330; text-decoration: none;">Projects</a>
+    <a href="#proof" onClick="{{ closeMenu }}" style="color: #0d1330; text-decoration: none;">Case studies</a>
+    <a href="#faq" onClick="{{ closeMenu }}" style="color: #0d1330; text-decoration: none;">FAQs</a>
+    <a href="#about" onClick="{{ closeMenu }}" style="color: #0d1330; text-decoration: none;">About</a>
+    <a href="mailto:sarah@forwardprojectops.com" onClick="{{ closeMenu }}" style="align-self: start; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 16px; text-decoration: none; color: #fff; background: #2b59ff; padding: 13px 24px; border-radius: 999px;">Contact Sarah</a>
+  </div>
+
+  <section id="top" class="pad sect" style="background: linear-gradient(180deg, #f4f7ff 0%, #fff 100%); padding: 84px 22px 76px;">
+    <div class="wrap split" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: center;">
+      <div>
+        <span style="display: flex; align-items: center; gap: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.01em; color: #2b59ff; margin-bottom: 20px;">
+          <span style="display: block; width: 38px; height: 3px; border-radius: 999px; background: rgb(43, 89, 255); flex: 0 0 auto;"></span>
+          Nice to meet you, I'm Sarah D. Gage, PMP
+        </span>
+        <h1 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 58px; line-height: 1.06; letter-spacing: -0.035em; color: #0d1330; margin: 0 0 24px; max-width: 20ch; text-wrap: pretty;">Freelance Project Manager for founders scaling past “I'll just do it myself.”</h1>
+        <p style="font-size: 19px; line-height: 1.65; max-width: 54ch; margin: 0 0 34px;">You didn't start a company to run every launch, hire, and process fix personally. I'm the extra set of hands who gets your team's initiatives across the finish line – on time, on budget, and without everything running through you.</p>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="mailto:sarah@forwardprojectops.com" style="white-space: nowrap; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 16px; text-decoration: none; color: #fff; background: #2b59ff; padding: 16px 30px; border-radius: 999px; box-shadow: 0 12px 28px rgba(43,89,255,0.26);" style-hover="background: #1f47d8;">Contact Sarah</a>
+          <a href="#projects" style="white-space: nowrap; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 16px; text-decoration: none; color: #0d1330; background: #fff; border: 1px solid #dde2ee; padding: 16px 30px; border-radius: 999px;" style-hover="border-color: #2b59ff; color: #2b59ff;">See My Work</a>
+        </div>
+      </div>
+      <div style="position: relative;">
+        <img src="assets/sarah-1.jpg" alt="Sarah D. Gage in her office" class="hero-img" style="width: 100%; height: 500px; object-fit: cover; object-position: 61% 30%; border-radius: 26px; display: block; box-shadow: 0 26px 60px rgba(13,19,48,0.14);">
+      </div>
+    </div>
+    <div class="wrap stat-row" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px;">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+        <div style="background: #fff; border: 1px solid #eaeef8; border-radius: 20px; padding: 24px 26px; box-shadow: 0 6px 18px rgba(13,19,48,0.05);">
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 36px; line-height: 1; letter-spacing: -0.03em; color: #2b59ff;">{{ s.value }}</div>
+          <div style="font-size: 15px; margin-top: 9px;">{{ s.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="how" class="pad sect" style="padding: 88px 22px;">
+    <div class="wrap">
+      <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: #2b59ff;">How I work</span>
+      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 42px; line-height: 1.12; letter-spacing: -0.03em; color: #0d1330; margin: 14px 0 34px; max-width: 26ch;">10+ years of project leadership with teams that move fast</h2>
+      <div class="cols-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 44px; font-size: 17px; line-height: 1.7;">
+        <div style="display: grid; gap: 18px;">
+          <p style="margin: 0;">Somewhere between 15 and 100 people, the thing that made your company work – you, holding every project's status in your head – starts being the reason things slip. The launch stalls because nobody owns the next step. The reorg drags because no one's tracking who's supposed to do what by when. You know the work is logical. It's the execution that's the problem.</p>
+        </div>
+        <div style="display: grid; gap: 18px;">
+          <p style="margin: 0;">That's the gap I fill. I'm a project manager with over a decade of hands-on experience running campaigns, product launches, team restructures, tool rollouts, and process changes for growing teams – the kind of work that needs a dedicated owner, not another item on your own to-do list.</p>
+          
+        </div>
+      </div>
+      
+      <blockquote style="margin: 34px 0 0; background: #f4f7ff; border-radius: 26px; padding: 38px 40px; display: grid; grid-template-columns: 76px 1fr; gap: 28px; align-items: center; margin-top: 50px">
+        <img src="assets/chris-kahn.jpg" alt="Chris Kahn" style="width: 76px; height: 76px; border-radius: 999px; object-fit: cover; display: block;">
+        <div>
+          <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.4; letter-spacing: -0.02em; color: #0d1330; margin: 0 0 14px; text-wrap: pretty;">“Sarah was always the one who kept an eye on the details: she's a logistics whiz who usually had the best suggestions for how to get from points A-to-Z, and everywhere in between.”</p>
+          <p style="font-size: 15px; margin: 0;">Chris Kahn – Founder &amp; Principal Consultant, Signal &amp; Story</p>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="pad sect" style="background: #f7f9fd; padding: 88px 22px;">
+    <div class="wrap">
+      <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: #2b59ff;">The process</span>
+      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 42px; line-height: 1.12; letter-spacing: -0.03em; color: #0d1330; margin: 14px 0 16px; max-width: 24ch;">A practical process for getting things done</h2>
+      <p style="font-size: 17px; line-height: 1.7; max-width: 70ch; margin: 0 0 44px;">You've probably had a consultant sell you a framework and vanish before anything shipped. That's not how I work. I plug in as a working project manager – hands-on with your team, not observing from the outside – and I stay through execution, not just the planning phase.</p>
+      <div class="cols-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
+        <sc-for list="{{ phases }}" as="p" hint-placeholder-count="3">
+          <div style="background: #fff; border: 1px solid #eaeef8; border-radius: 22px; padding: 32px 30px 34px; box-shadow: 0 8px 24px rgba(13,19,48,0.05);">
+            <div style="display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 13px; background: #e8eeff; color: #2b59ff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 17px; margin-bottom: 20px;">{{ p.no }}</div>
+            <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 25px; letter-spacing: -0.02em; color: #0d1330; margin: 0 0 12px;">{{ p.title }}</h3>
+            <p style="font-size: 16px; line-height: 1.7; margin: 0;">{{ p.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top: 45px; background: #fff; border: 1px solid #eaeef8; border-radius: 22px; padding: 26px 30px; display: flex; gap: 22px; align-items: center; flex-wrap: wrap">
+        <span style="background: #e8eeff; color: #2b59ff; font-weight: 600; font-size: 14px; padding: 8px 16px; border-radius: 999px; white-space: nowrap;">Lighter lift</span>
+        <p style="margin: 0; font-size: 16px; line-height: 1.7; flex: 1; min-width: 34ch;">Not ready to hand off a full project? I also offer standalone <strong style="color: #0d1330;">Project Readiness Reviews</strong> and <strong style="color: #0d1330;">Post-Launch Check-Ins</strong> for a lighter-lift way to get an experienced PM's eyes on the work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="pad sect" style="padding: 88px 22px;">
+    <div class="wrap">
+      <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: #2b59ff;">What I take on</span>
+      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 42px; line-height: 1.12; letter-spacing: -0.03em; color: #0d1330; margin: 14px 0 16px;">Projects I can help you execute</h2>
+      <p style="font-size: 17px; line-height: 1.7; max-width: 66ch; margin: 0 0 42px;">I've spent a decade as the person actually running the projects that determine whether or not a growing team's plans drive real outcomes. Here's where founders bring me in:</p>
+      <div class="cols-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="8">
+          <article style="background: #fff; border: 1px solid #eaeef8; border-radius: 22px; padding: 28px 26px 30px; box-shadow: 0 6px 18px rgba(13,19,48,0.04);" style-hover="border-color: #c9d6ff; box-shadow: 0 14px 34px rgba(13,19,48,0.09);">
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; color: #9aa4c2; margin-bottom: 16px;">{{ s.no }}</div>
+            <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.28; letter-spacing: -0.02em; color: #0d1330; margin: 0 0 12px;">{{ s.title }}</h3>
+            <p style="font-size: 15px; line-height: 1.68; margin: 0;">{{ s.body }}</p>
+          </article>
+        </sc-for>
+      </div>
+      <p style="margin: 34px 0 0; font-size: 17px; text-align: center;">Have a project that doesn't fit neatly into a category above? <a href="mailto:sarah@forwardprojectops.com" style="font-weight: 500;">I'd still love to hear about it.</a></p>
+    </div>
+  </section>
+
+  <section class="pad sect" style="background: #0d1330; padding: 84px 22px;">
+    <div class="wrap cols-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+      <blockquote style="margin: 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; padding: 34px 36px;">
+        <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 21px; line-height: 1.5; color: #fff; margin: 0 0 22px; text-wrap: pretty;">“I was lucky enough to collaborate with Sarah on a major project which she was leading. Our work was closely watched by leadership and there was about as many stakeholders as there were teams at the company, but Sarah managed it deftly. Her communication – both within our working group and to others – was impeccable.”</p>
+        <footer style="display: flex; align-items: center; gap: 14px;">
+          <img src="assets/alice-holbrook.jpg" alt="Alice Holbrook" style="width: 52px; height: 52px; border-radius: 999px; object-fit: cover; display: block;">
+          <span style="font-size: 15px; line-height: 1.5; color: #aab4d4;">Alice Holbrook – Editor, Bankrate</span>
+        </footer>
+      </blockquote>
+      <blockquote style="margin: 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; padding: 34px 36px;">
+        <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 21px; line-height: 1.5; color: #fff; margin: 0 0 22px; text-wrap: pretty;">“Sarah did a fantastic job of helping us bring our content platform to life across many different content vehicles: collateral, blog posts, PR, videos, and speaking engagements, among others. She was an excellent thought partner, and brought structure to our content efforts by setting up tools, processes, and guardrail documents to help our team work efficiently.”</p>
+        <footer style="display: flex; align-items: center; gap: 14px;">
+          <img src="assets/mckenna-michel.jpg" alt="McKenna Michel" style="width: 52px; height: 52px; border-radius: 999px; object-fit: cover; display: block;">
+          <span style="font-size: 15px; line-height: 1.5; color: #aab4d4;">McKenna Michel – Former EVP Marketing, Travel Research Advisors</span>
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="proof" class="pad sect" style="padding: 88px 22px;">
+    <div class="wrap">
+      <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: #2b59ff;">Case studies</span>
+      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 42px; line-height: 1.12; letter-spacing: -0.03em; color: #0d1330; margin: 14px 0 16px;">Proof, not just promises</h2>
+      <p style="font-size: 17px; line-height: 1.7; max-width: 70ch; margin: 0 0 42px;">I've run projects inside fast-growing teams across financial services, SaaS, consumer software, and more&nbsp;<span id="docs-internal-guid-be228b7b-7fff-12da-e4c3-611b3279fa34"><span style="font-size: 11pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;">–</span></span>&nbsp;not advised from the outside. A few examples of the kind of work I take off founders' plates:</p>
+      <div class="cols-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+        <sc-for list="{{ cases }}" as="c" hint-placeholder-count="6">
+          <article style="background: #fff; border: 1px solid #eaeef8; border-radius: 22px; padding: 30px 28px 30px; display: flex; flex-direction: column; box-shadow: 0 6px 18px rgba(13,19,48,0.04);" style-hover="border-color: #c9d6ff; box-shadow: 0 14px 34px rgba(13,19,48,0.09);">
+            <span style="align-self: start; background: #e8eeff; color: #2b59ff; font-weight: 600; font-size: 13px; padding: 7px 14px; border-radius: 999px; margin-bottom: 18px;">{{ c.industry }}</span>
+            <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.28; letter-spacing: -0.02em; color: #0d1330; margin: 0 0 16px;">{{ c.title }}</h3>
+            <p style="font-size: 15px; line-height: 1.65; margin: 0 0 24px; padding-top: 16px; border-top: 1px solid #eef0f6;">{{ c.work }}</p>
+            <a href="{{ c.href }}" style="margin-top: auto; align-self: start; white-space: nowrap; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; color: #fff; background: #2b59ff; padding: 12px 24px; border-radius: 999px;" style-hover="background: #1f47d8;">View Now</a>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="pad sect" style="padding: 68px 22px;">
+    <div class="wrap">
+      <span style="display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: #2b59ff;">FAQs</span>
+      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 42px; line-height: 1.12; letter-spacing: -0.03em; color: #0d1330; margin: 14px 0 34px;">Frequently Asked Questions</h2>
+      <div style="display: grid; gap: 14px; max-width: 900px;">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="3">
+          <div style="background: #fff; border: 1px solid #eaeef8; border-radius: 20px; box-shadow: 0 6px 18px rgba(13,19,48,0.04); overflow: hidden;">
+            <button type="button" onClick="{{ f.toggle }}" style="width: 100%; display: flex; align-items: center; gap: 18px; text-align: left; background: transparent; border: none; cursor: pointer; padding: 24px 28px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -0.02em; color: #0d1330;">
+              <span style="flex: 1;">{{ f.q }}</span>
+              <span style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 999px; background: #e8eeff; color: #2b59ff; flex: none; font-family: 'DM Sans', sans-serif; font-size: 22px; line-height: 1;">{{ f.sign }}</span>
+            </button>
+            <p style="display: {{ f.display }}; margin: 0; padding: 0 28px 26px; font-size: 17px; line-height: 1.72; max-width: 74ch;">{{ f.a }}</p>
+          </div>
+        </sc-for>
+      </div>
+      
+    </div>
+  </section>
+
+  <section id="about" class="pad sect" style="background: #f7f9fd; padding: 88px 22px;">
+    <div class="wrap split" style="display: grid; grid-template-columns: 340px 1fr; gap: 64px; align-items: start;">
+      <img src="assets/sarah-2.jpg" alt="Sarah D. Gage" style="width: 100%; max-width: 340px; border-radius: 26px; display: block; box-shadow: 0 20px 46px rgba(13,19,48,0.12);">
+      <div>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: #2b59ff;">About</span>
+        <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.03em; color: #0d1330; margin: 14px 0 24px;">Sarah D. Gage, PMP</h2>
+        <div class="cols-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; font-size: 17px; line-height: 1.7;">
+          <p style="margin: 0;">Based in Ann Arbor, MI, Sarah Gage brings over a decade of hands-on project management experience across a strikingly varied set of fast-moving industries&nbsp;<span id="docs-internal-guid-be228b7b-7fff-12da-e4c3-611b3279fa34"><span style="font-size: 11pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;">–</span></span>&nbsp;from financial media and digital marketing agencies to SaaS, consumer software, and executive security.</p>
+          <p style="margin: 0;">She holds PMP and Workshopper Master Facilitator certifications and is an MBA candidate at the University of Illinois Urbana-Champaign.</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap; margin-top: 40px; padding-top: 32px; border-top: 1px solid #e4e9f4;">
+          <img src="assets/pmp-badge.png" alt="Project Management Professional (PMP) certification" style="height: 72px; width: auto; flex: none;">
+          <img src="assets/umich.png" alt="University of Michigan" style="height: 77px; width: auto; flex: none;">
+          <img src="assets/gies-illinois.webp" alt="Gies College of Business, University of Illinois Urbana-Champaign" style="height: 46px; width: auto; flex: none;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="pad sect" style="padding: 92px 22px 96px;">
+    <div class="wrap" style="background: linear-gradient(135deg, #2b59ff 0%, #4b6bff 55%, #6f8cff 100%); border-radius: 32px; padding: 60px 56px; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; box-shadow: 0 26px 60px rgba(43,89,255,0.28);">
+      <div>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: #d7e0ff;">Contact Sarah</span>
+        <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 42px; line-height: 1.14; letter-spacing: -0.03em; color: #fff; margin: 14px 0 18px; max-width: 28ch; text-wrap: pretty;">Reach out for a custom proposal.&nbsp; Most founders know within one call whether it's a fit.</h2>
+        
+      </div>
+      <a href="mailto:sarah@forwardprojectops.com" style="white-space: nowrap; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 17px; text-decoration: none; color: #2b59ff; background: #fff; padding: 18px 34px; border-radius: 999px; box-shadow: 0 12px 30px rgba(13,19,48,0.18);" style-hover="background: #eef2ff;">Contact Sarah</a>
+    </div>
+  </section>
+
+  <footer class="pad" style="background: #0d1330; padding: 28px 22px; text-align: center; font-size: 14px; color: #aab4d4;">
+    <div class="wrap">© 2026 &nbsp;|&nbsp; Forward Project Ops &nbsp;|&nbsp; All Rights Reserved</div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+class Component extends DCLogic {
+  state = { menuOpen: false, openFaq: 0 };
+  renderVals() {
+    const menuDisplay = this.state.menuOpen ? "flex" : "none";
+    const toggleMenu = () => this.setState(s => ({ menuOpen: !s.menuOpen }));
+    const closeMenu = () => this.setState({ menuOpen: false });
+
+    const faqs = [
+      ["What industries have you worked in?", "I've run projects in companies in financial media, B2B, SaaS, consumer software, security, and other industries. If I haven't worked in your space, my deep background in marketing and editorial work has taught me how to jump into new industries and learn your specifics fast – not force-fit a generic playbook."],
+      ["How much time will it take to get you onboarded?", "Very little. My job is to take execution off your plate starting week one, not add another thing you have to manage."],
+      ["How do you work with projects of different sizes?", "I work with clients on individual projects, retainers, or on an hourly basis, depending on their specific needs. You get dedicated project management support exactly when you need it, without a long-term commitment."]
+    ].map(([q, a], i) => ({
+      q, a,
+      display: this.state.openFaq === i ? "block" : "none",
+      sign: this.state.openFaq === i ? "−" : "+",
+      toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }))
+    }));
+
+    const stats = [
+      ["10+", "Years running projects hands-on"],
+      ["PMP", "+ Workshopper Master Facilitator"],
+      ["~15–100", "The headcount I plug into"]
+    ].map(([value, label]) => ({ value, label }));
+
+    const phases = [
+      ["01", "Align", "I scope the project, map who actually needs to be involved, and confirm your resourcing assumptions against real data – before your team commits time to a plan that won't hold up."],
+      ["02", "Run", "I own the day-to-day: stakeholder coordination, kickoffs, working sessions, and keeping the timeline honest – with the judgment to flex the plan when reality doesn't match it."],
+      ["03", "Confirm", "I close things out with structured post-launch check-ins to catch problems early, so a “finished” project doesn't quietly fall apart in month two."]
+    ].map(([no, title, body]) => ({ no, title, body }));
+
+    const services = [
+      ["01", "Product & Feature Launches", "Coordinate the cross-functional work, manage the timeline, and run UAT – so launch day doesn't depend on you personally holding it together."],
+      ["02", "Team Mergers & Restructures", "Combine teams or roles with a phased rollout plan and real stakeholder buy-in, managed start to finish."],
+      ["03", "Process & Workflow Redesign", "Replace ad-hoc habits with documented systems your team follows, without you having to build and enforce them yourself."],
+      ["04", "Tool & Technology Implementations", "Get new software (CRMs, project management, reporting tools) selected, configured, and adopted, with vendor coordination handled for you."],
+      ["05", "Change Rollouts & New Initiatives", "Roll out new policy, structure, or strategy with real training and follow-through – not just an announcement that nobody executes on."],
+      ["06", "Marketing & Launch Campaigns", "Scope, run, and close out campaigns end-to-end, from initial planning through post-mortem reporting."],
+      ["07", "Capacity & Performance Analysis", "Get a clear, data-backed read on where your team's time is actually going, to inform hiring and resourcing decisions."],
+      ["08", "Strategic Planning & Prioritization", "Turn your goals into a project plan your team can execute against – with someone tracking whether it's actually happening."]
+    ].map(([no, title, body]) => ({ no, title, body }));
+
+    const cases = [
+      ["Financial Services", "Merging Two Teams Into One Culture", "Integrating two previously separate editorial teams into one unified group following a leadership change."],
+      ["IT Consulting", "Testing a New Channel, Landing New Business", "Generating new business leads through an untested webinar format."],
+      ["Human Services", "Scaling Sales Systems During Rapid Growth", "Migrating the company's CRM platform and building out new sales team structures and marketing automation capability."],
+      ["Home Health Care SaaS", "Building Organic Authority for a New Brand from the Ground Up ", "Building brand visibility and organic search presence for a relatively new software company."],
+      ["Financial Services", "From Generic Web Pages to Personalized Recommendations", "Launching a personalized credit card recommendation tool across the client's highest-traffic transactional pages."],
+      ["Corporate Security", "Turning Industry Connections Into Original Research", "Producing the industry's first major research report on executive security best practices."]
+    ].map(([industry, title, work]) => ({
+      industry, title, work,
+      href: title.includes("Generic Web Pages") ? "case-studies/personalized-recommendations.html"
+        : title.startsWith("Merging Two Teams") ? "case-studies/team-merger.html"
+        : title.startsWith("Building Organic") ? "case-studies/organic-authority.html"
+        : title.startsWith("Scaling Sales") ? "case-studies/sales-systems.html"
+        : title.startsWith("Testing a New") ? "case-studies/new-channel-webinar.html"
+        : title.startsWith("Turning Industry") ? "case-studies/original-research.html"
+        : "#proof"
+    }));
+
+    return { menuDisplay, toggleMenu, closeMenu, faqs, stats, phases, services, cases };
+  }
+}
+
+</script>
+</body>
+</html>
