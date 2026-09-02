@@ -236,7 +236,7 @@
       <span style="display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: #2b59ff;">FAQs</span>
       <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 42px; line-height: 1.12; letter-spacing: -0.03em; color: #0d1330; margin: 14px 0 34px;">Frequently Asked Questions</h2>
       <div style="display: grid; gap: 14px; max-width: 900px;">
-        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="3">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
           <div style="background: #fff; border: 1px solid #eaeef8; border-radius: 20px; box-shadow: 0 6px 18px rgba(13,19,48,0.04); overflow: hidden;">
             <button type="button" onClick="{{ f.toggle }}" style="width: 100%; display: flex; align-items: center; gap: 18px; text-align: left; background: transparent; border: none; cursor: pointer; padding: 24px 28px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.4; letter-spacing: -0.02em; color: #0d1330;">
               <span style="flex: 1;">{{ f.q }}</span>
@@ -295,9 +295,11 @@ class Component extends DCLogic {
     const closeMenu = () => this.setState({ menuOpen: false });
 
     const faqs = [
-      ["What industries have you worked in?", "I've run projects for companies in financial media, B2B, SaaS, consumer software, security, and other industries. If I haven't worked in your space, my deep background in marketing and editorial work has taught me how to jump into new industries and learn their specifics fast – not force-fit a generic playbook."],
-      ["How much time will it take to get you onboarded?", "Very little. My job is to take execution off your plate starting week one, not add another thing you have to manage."],
-      ["How do you work with projects of different sizes?", "I work with clients on individual projects, retainers, or on an hourly basis, depending on their specific needs. You get dedicated project management support exactly when you need it, without a long-term commitment."]
+      ["What industries have you worked in?", "I've run projects for companies inside financial services, B2B, SaaS, consumer software, security, and other industries, including regulated environments. If I haven't worked in your space, my deep background in marketing and editorial work has taught me how to jump into new industries and learn their specifics fast. And if your project really does need domain competency I don't have, I'll be the first to tell you it's not a fit."],
+      ["How much time will it take to get you onboarded?", "Ultimately, it depends on factors such as the size of your team and the complexity of your project. However, my goal is to take execution off your plate as quickly as possible, and I use a structured onboarding workflow to make the process efficient for your busy schedule. "],
+      ["Do you work on one-off projects or long-term engagements?", "Both, depending your needs. I can step in to help get critical, time-sensitive projects over the finish line – giving you dedicated project management support when you need it, without a long-term commitment – or I can support your team's ongoing project operations needs on a longer-term basis."],
+      ["Can you work on-site with me?", "I currently work on-site with teams in Southeastern Michigan, including the Metro Detroit, Ann Arbor, Lansing, and Jackson areas. For all other areas, I'm available for limited travel or remote project management engagements."],
+      ["What size companies do you work with?", "Most of my experience comes from working with early-stage founders, including those who are bootstrapping at the pre-seed stage and those who have closed seed and Series A funding rounds. But if you're in a different stage and see an opportunity to bring a stronger project operations discipline to your business, I'd still love to chat."]
     ].map(([q, a], i) => ({
       q, a,
       display: this.state.openFaq === i ? "block" : "none",
@@ -330,7 +332,7 @@ class Component extends DCLogic {
 
     const cases = [
       ["Financial Services", "Merging Two Teams Into One Culture", "Integrating two previously separate editorial teams into one unified group following a leadership change."],
-      ["IT Consulting", "Testing a New Channel, Landing New Business", "Generating new business leads through an untested webinar format."],
+      ["IT Consulting", "Testing a New Channel, Landing New Business", "Generating new business and leads through an untested webinar format."],
       ["Human Services", "Scaling Sales Systems During Rapid Growth", "Migrating the company's CRM platform and building out new sales team structures and marketing automation capability."],
       ["Home Health Care SaaS", "Building Organic Authority for a New Brand from the Ground Up ", "Building brand visibility and organic search presence for a relatively new software company."],
       ["Financial Services", "From Generic Web Pages to Personalized Recommendations", "Launching a personalized credit card recommendation tool across the client's highest-traffic transactional pages."],
