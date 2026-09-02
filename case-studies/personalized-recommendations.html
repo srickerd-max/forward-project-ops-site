@@ -27,11 +27,11 @@
   :focus-visible { outline: 2px solid #2b59ff; outline-offset: 3px; }
   ::selection { background: #d8e1ff; }
   [data-mobile-only] { display: none !important; }
-  @media (min-width: 901px) {
+  @media (min-width: 1021px) {
     .wrap { max-width: 1180px; margin: 0 auto; }
     .pad { padding-left: 56px !important; padding-right: 56px !important; }
   }
-  @media (min-width: 901px) {
+  @media (min-width: 1021px) {
     .sect { padding-top: 68px !important; padding-bottom: 68px !important; }
   }
   @media (max-width: 1120px) {
@@ -41,7 +41,7 @@
     h2 { font-size: 34px !important; }
     .hero-img { height: 360px !important; }
   }
-  @media (max-width: 900px) {
+  @media (max-width: 1020px) {
     [data-mobile-only] { display: flex !important; }
     [data-desk-only] { display: none !important; }
     .pad { padding-left: 22px !important; padding-right: 22px !important; }
@@ -80,7 +80,7 @@
         <a href="../index.html#faq" style="color: #4a5270; text-decoration: none;" style-hover="color: #2b59ff;">FAQs</a>
         <a href="../index.html#about" style="color: #4a5270; text-decoration: none;" style-hover="color: #2b59ff;">About</a>
       </nav>
-      <button type="button" data-mobile-only="" onClick="{{ toggleMenu }}" aria-label="Menu" style="align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 12px; border: 1px solid #e6e9f2; background: #fff; color: #0d1330; cursor: pointer; padding: 0;">
+      <button type="button" data-mobile-only="" onClick="{{ toggleMenu }}" aria-label="Menu" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 12px; border: 1px solid #e6e9f2; background: #fff; color: #0d1330; cursor: pointer; padding: 0;">
         <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
           <path d="M1 1h16M1 6h16M1 11h16"></path>
         </svg>
@@ -89,7 +89,7 @@
     </div>
   </header>
 
-  <div data-mobile-menu="" class="pad" style="display: {{ menuDisplay }}; flex-direction: column; gap: 18px; padding: 22px; background: #fff; border-bottom: 1px solid #eef0f6; font-size: 18px; font-weight: 500;">
+  <div data-mobile-menu="" class="pad" style="display: {{ menuDisplay }}; position: fixed; top: 74px; left: 0; right: 0; z-index: 29; max-height: calc(100vh - 74px); overflow-y: auto; flex-direction: column; gap: 18px; padding: 22px; background: #fff; border-bottom: 1px solid #eef0f6; box-shadow: 0 18px 40px rgba(13,19,48,0.12); font-size: 18px; font-weight: 500;">
     <a href="../index.html#how" onClick="{{ closeMenu }}" style="color: #0d1330; text-decoration: none;">How I work</a>
     <a href="../index.html#projects" onClick="{{ closeMenu }}" style="color: #0d1330; text-decoration: none;">Projects</a>
     <a href="../index.html#proof" onClick="{{ closeMenu }}" style="color: #0d1330; text-decoration: none;">Case studies</a>
@@ -228,7 +228,7 @@ class Component extends DCLogic {
             "title": "Scaling Sales Systems During Rapid Growth",
             "work": "Technology Migration · Team Structure · Process Development"
       }
-    ].map(c => ({ ...c, href: "Case Study " + c.n + " v2.dc.html" }));
+    ].map(c => ({ ...c, href: { 1: "personalized-recommendations", 2: "team-merger", 3: "organic-authority", 4: "sales-systems", 5: "new-channel-webinar", 6: "original-research" }[c.n] + ".html" }));
 
     return { menuDisplay, toggleMenu, closeMenu, steps, related };
   }
